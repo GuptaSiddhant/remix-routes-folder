@@ -23,6 +23,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@jsdevtools/npm-publish": "^1.4.3",
     "@remix-run/dev": "^1.14.0",
     "@types/node": "^18.0.0",
     "fast-glob": "^3",
