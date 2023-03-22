@@ -1,9 +1,10 @@
 {
   "name": "remix-routes-folder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "types": "index.d.ts",
   "description": "A Remix plugin that allows you to organize your routes in multiple route-folders.",
+  "license": "MIT",
   "keywords": [
     "remix",
     "routes",
