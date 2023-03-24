@@ -1,0 +1,8 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "package.json": "yarn*, .eslintrc*, .git*, .yarnrc.*, tsconfig.*, jsconfig.*, prettier*, .prettier*, lint-staged.*",
+        "*.ts": "$(capture).js, $(capture).d.ts, $(capture).test.*"
+    },
+}

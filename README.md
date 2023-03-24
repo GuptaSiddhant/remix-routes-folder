@@ -1,5 +1,7 @@
 # remix-routes-folder
 
+[![npm version](https://badge.fury.io/js/remix-routes-folder.svg)](https://www.npmjs.com/package/remix-routes-folder)
+
 A Remix plugin that allows you to organize your routes in multiple route-folders.
 
 Each route-folder can be hosted on a different URL path.
@@ -9,7 +11,9 @@ Each route-folder can be hosted on a different URL path.
 ## Installation
 
 ```bash
-npm install remix-routes-folder
+npm i -D remix-routes-folder
+# -- or --
+yarn add -D remix-routes-folder
 ```
 
 ## Usage
@@ -39,6 +43,8 @@ module.exports = {
   },
 };
 ```
+
+![Comparison](./assets/comparison.jpg)
 
 ## API
 

@@ -1,10 +1,7 @@
 {
   "name": "remix-routes-folder",
-  "version": "0.1.1",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "version": "0.1.2",
   "description": "A Remix plugin that allows you to organize your routes in multiple route-folders.",
-  "license": "MIT",
   "keywords": [
     "remix",
     "routes",
@@ -13,10 +10,26 @@
     "plugin",
     "typescript"
   ],
+  "homepage": "http://github.com/GuptaSiddhant/remix-routes-folder#readme",
+  "bugs": {
+    "url": "https://github.com/GuptaSiddhant/remix-routes-folder/issues",
+    "email": "me@guptasiddhant.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Siddhant Gupta",
+    "email": "me@guptasiddhant.com",
+    "url": "https://guptasiddhant.com"
+  },
   "files": [
     "index.js",
     "index.d.ts"
   ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "github:GuptaSiddhant/remix-routes-folder",
+  "sideEffects": false,
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
@@ -31,14 +44,5 @@
   },
   "peerDependencies": {
     "@remix-run/dev": "^1.14.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GuptaSiddhant/remix-routes-folder"
-  },
-  "author": {
-    "name": "Siddhant Gupta",
-    "email": "me@guptasiddhant.com",
-    "url": "https://guptasiddhant.com"
   }
 }
