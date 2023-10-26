@@ -2,12 +2,14 @@ import fg from "fast-glob";
 import fs from "node:fs";
 import path from "node:path";
 
-import { flatRoutesUniversal } from "@remix-run/dev/dist/config/flat-routes";
+import {
+  flatRoutesUniversal,
+  routeModuleExts,
+} from "@remix-run/dev/dist/config/flat-routes";
 import type {
   ConfigRoute,
   RouteManifest,
 } from "@remix-run/dev/dist/config/routes";
-import { routeModuleExts } from "@remix-run/dev/dist/config/routesConvention";
 
 export interface AddRoutesFolderOptions {
   /** URL path to mount the directory to. If left undefined, the directory name will be used. */
@@ -20,7 +22,7 @@ export interface AddRoutesFolderOptions {
 
 export function addRoutesFolder(
   routesFolder: string,
-  options: AddRoutesFolderOptions = {},
+  options: AddRoutesFolderOptions = {}
 ): RouteManifest {
   const {
     urlPath = routesFolder,
@@ -32,7 +34,7 @@ export function addRoutesFolder(
   const rootFilePath = generateRootFilePath(
     appDirectory,
     routesFolder,
-    routePaths,
+    routePaths
   );
 
   return generateFlatRoutes(
@@ -40,7 +42,7 @@ export function addRoutesFolder(
     rootFilePath,
     urlPath,
     routePaths,
-    appDirectory,
+    appDirectory
   );
 }
 
@@ -48,7 +50,7 @@ const ROOT_LAYOUT_FILE = "__root";
 
 function generateRoutesDirPath(
   routesFolder: string,
-  appDirectory: string = "app",
+  appDirectory: string = "app"
 ) {
   const currentDir = process.cwd();
   const appDirPth = path.resolve(currentDir, appDirectory);
@@ -62,15 +64,15 @@ function generateRoutesDirPath(
 function generateRootFilePath(
   appDirectory: string,
   routesFolder: string,
-  routePaths: string[],
+  routePaths: string[]
 ) {
   const rootFile = routePaths.find((routePath) =>
-    routePath.includes(path.join(routesFolder, ROOT_LAYOUT_FILE)),
+    routePath.includes(path.join(routesFolder, ROOT_LAYOUT_FILE))
   );
 
   if (!rootFile) {
     throw new Error(
-      `Directory "${routesFolder}" does not contain a "${ROOT_LAYOUT_FILE}" file. The root file should contain <Outlet/>.`,
+      `Directory "${routesFolder}" does not contain a "${ROOT_LAYOUT_FILE}" file. The root file should contain <Outlet/>.`
     );
   }
 
@@ -79,7 +81,7 @@ function generateRootFilePath(
 
 function generateRoutePaths(
   routesDirPath: string,
-  ignoredRouteFiles: string[] = ["**/.*"],
+  ignoredRouteFiles: string[] = ["**/.*"]
 ) {
   const extensions = routeModuleExts.join(",");
   const routePaths = fg
@@ -93,7 +95,7 @@ function generateRoutePaths(
 
   // Remove the current working directory from the route paths
   return routePaths.map((routePath) =>
-    routePath.slice(process.cwd().length + 1),
+    routePath.slice(process.cwd().length + 1)
   );
 }
 
@@ -102,7 +104,7 @@ function generateFlatRoutes(
   rootFilePath: string,
   urlPath: string,
   routePaths: string[],
-  appDirectory: string,
+  appDirectory: string
 ) {
   const flatRoutes = flatRoutesUniversal(appDirectory, routePaths, routesDir);
 
